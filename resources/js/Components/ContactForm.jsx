@@ -16,9 +16,10 @@ export default function ContactForm() {
     setLoading(true)
     setStatus(null)
     try {
-      const res = await fetch('/api/contact', {
+      const csrf = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || ''
+      const res = await fetch('/kontak', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': csrf },
         body: JSON.stringify(data),
       })
       const json = await res.json()
@@ -67,4 +68,3 @@ export default function ContactForm() {
     </form>
   )
 }
-
