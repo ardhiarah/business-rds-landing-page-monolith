@@ -112,10 +112,6 @@ export default function Galeri() {
                         plugins={[lgThumbnail, lgZoom]}
                         download={false}
                         showThumbByDefault={true}
-                        thumbWidth={100}
-                        thumbHeight={70}
-                        animateThumb={false}
-                        toggleThumb={false}
                     />
                 </section>
             </main>

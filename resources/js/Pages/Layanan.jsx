@@ -1,16 +1,72 @@
 import SiteLayout from "../Layouts/SiteLayout";
 import { Badge } from "../Components/ui/badge";
+import { useRef, useMemo } from "react";
 import {
     Card,
     CardHeader,
     CardTitle,
     CardContent,
 } from "../Components/ui/card";
+import LightGallery from "lightgallery/react";
+import lgZoom from "lightgallery/plugins/zoom";
+import lgThumbnail from "lightgallery/plugins/thumbnail";
+import "lightgallery/css/lightgallery.css";
+import "lightgallery/css/lg-zoom.css";
+import "lightgallery/css/lg-thumbnail.css";
 import ContactForm from "../Components/ContactForm";
 import { usePage } from "@inertiajs/react";
 
 export default function Layanan() {
     const { schedules = [], events = [] } = usePage().props;
+    const sLgRef = useRef(null);
+    const eLgRef = useRef(null);
+
+    const toStorageUrl = (p) => {
+        if (!p) return null;
+        if (p.startsWith("http://") || p.startsWith("https://")) return p;
+        if (p.startsWith("/storage/")) return p;
+        return "/storage/" + encodeURI(p);
+    };
+
+    const gridClass = (count) => {
+        if (count <= 1) return "grid grid-cols-1";
+        if (count === 2) return "grid gap-6 sm:grid-cols-2";
+        if (count === 3) return "grid gap-6 sm:grid-cols-2 md:grid-cols-3";
+        if (count >= 4) return "grid gap-6 sm:grid-cols-2 md:grid-cols-4";
+        return "grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4";
+    };
+
+    const sGalleryItems = useMemo(
+        () =>
+            schedules
+                .map((item, idx) => ({
+                    idx,
+                    url: toStorageUrl(item.image_url),
+                    caption: item.caption || "",
+                }))
+                .filter((x) => !!x.url),
+        [schedules]
+    );
+    const sIndexMap = useMemo(
+        () => new Map(sGalleryItems.map((g, j) => [g.idx, j])),
+        [sGalleryItems]
+    );
+
+    const eGalleryItems = useMemo(
+        () =>
+            events
+                .map((item, idx) => ({
+                    idx,
+                    url: toStorageUrl(item.image_url),
+                    caption: item.caption || "",
+                }))
+                .filter((x) => !!x.url),
+        [events]
+    );
+    const eIndexMap = useMemo(
+        () => new Map(eGalleryItems.map((g, j) => [g.idx, j])),
+        [eGalleryItems]
+    );
 
     return (
         <SiteLayout>
@@ -26,44 +82,42 @@ export default function Layanan() {
                     </p>
                 </div>
                 <section className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Refreshment Manajemen Risiko</CardTitle>
-                        </CardHeader>
-                        <CardContent>
+                    <div className="rounded-xl border border-slate-300 dark:border-slate-700 p-4">
+                        <h3 className="font-semibold">
+                            Refreshment Manajemen Risiko
+                        </h3>
+                        <p className="mt-2 text-neutral-700 dark:text-neutral-300">
                             Program penyegaran kebijakan dan praktik terbaru
                             bagi karyawan perbankan.
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Pembekalan Ujian Sertifikasi</CardTitle>
-                        </CardHeader>
-                        <CardContent>
+                        </p>
+                    </div>
+                    <div className="rounded-xl border border-slate-300 dark:border-slate-700 p-4">
+                        <h3 className="font-semibold">
+                            Pembekalan Ujian Sertifikasi
+                        </h3>
+                        <p className="mt-2 text-neutral-700 dark:text-neutral-300">
                             Materi komprehensif dan latihan soal up to date
                             untuk persiapan efektif.
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Try Out &amp; Bank Soal</CardTitle>
-                        </CardHeader>
-                        <CardContent>
+                        </p>
+                    </div>
+                    <div className="rounded-xl border border-slate-300 dark:border-slate-700 p-4">
+                        <h3 className="font-semibold">
+                            Try Out &amp; Bank Soal
+                        </h3>
+                        <p className="mt-2 text-neutral-700 dark:text-neutral-300">
                             Simulasi dan akses bank soal 2.000 butir untuk
                             meningkatkan kepercayaan diri.
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>
-                                Training Non-Risiko &amp; Soft Skill
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent>
+                        </p>
+                    </div>
+                    <div className="rounded-xl border border-slate-300 dark:border-slate-700 p-4">
+                        <h3 className="font-semibold">
+                            Training Non-Risiko &amp; Soft Skill
+                        </h3>
+                        <p className="mt-2 text-neutral-700 dark:text-neutral-300">
                             Leadership, selling skill, negotiation, dan customer
                             service.
-                        </CardContent>
-                    </Card>
+                        </p>
+                    </div>
                 </section>
 
                 <div className="mt-12 flex items-center justify-between">
@@ -153,7 +207,7 @@ export default function Layanan() {
                     </p>
                 </div>
 
-                <div className="flex flex-col md:flex-row items-start justify-between">
+                <div className="flex flex-col md:flex-row items-start justify-between gap-6">
                     <section className="mt-8">
                         <h2 className="text-2xl font-semibold text-black dark:text-white">
                             Schedule
@@ -163,35 +217,70 @@ export default function Layanan() {
                                 Belum ada schedule yang tersedia.
                             </div>
                         ) : (
-                            <div className="mt-4 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
-                                {schedules.map((item) => (
-                                    <Card
-                                        key={item.id}
-                                        className="overflow-hidden"
-                                    >
-                                        <div className="h-40 w-full bg-neutral-100 dark:bg-neutral-900">
-                                            {item.image_url ? (
-                                                <img
-                                                    src={item.image_url}
-                                                    alt={
-                                                        item.caption ||
-                                                        "Schedule"
-                                                    }
-                                                    className="h-full w-full object-cover"
-                                                />
-                                            ) : (
-                                                <div className="h-full w-full flex items-center justify-center text-neutral-500">
-                                                    No Image
-                                                </div>
+                            <div
+                                className={`mt-4 ${gridClass(
+                                    schedules.length
+                                )}`}
+                            >
+                                {schedules.map((item, i) => {
+                                    const url = toStorageUrl(item.image_url);
+                                    const tall = schedules.length === 1;
+                                    const h = tall ? "h-80 sm:h-96" : "h-40";
+                                    return (
+                                        <div
+                                            key={item.id}
+                                            className="overflow-hidden rounded-xl border border-slate-300 dark:border-slate-700"
+                                        >
+                                            <div
+                                                className={`relative ${h} w-full bg-neutral-100 dark:bg-neutral-900`}
+                                            >
+                                                {url ? (
+                                                    <a
+                                                        href={url}
+                                                        onClick={(e) => {
+                                                            e.preventDefault();
+                                                            const gi =
+                                                                sIndexMap.get(
+                                                                    i
+                                                                );
+                                                            if (
+                                                                gi !== undefined
+                                                            ) {
+                                                                sLgRef.current?.openGallery(
+                                                                    gi
+                                                                );
+                                                            }
+                                                        }}
+                                                        className="block"
+                                                        aria-label={
+                                                            item.caption ||
+                                                            "Schedule"
+                                                        }
+                                                    >
+                                                        <img
+                                                            src={url}
+                                                            alt={
+                                                                item.caption ||
+                                                                "Schedule"
+                                                            }
+                                                            className={`w-full ${h} object-cover`}
+                                                            loading="lazy"
+                                                        />
+                                                    </a>
+                                                ) : (
+                                                    <div className="h-full w-full flex items-center justify-center text-neutral-500">
+                                                        No Image
+                                                    </div>
+                                                )}
+                                            </div>
+                                            {item.caption && (
+                                                <p className="text-sm text-center text-neutral-700 dark:text-neutral-300 p-3">
+                                                    {item.caption}
+                                                </p>
                                             )}
                                         </div>
-                                        {item.caption && (
-                                            <CardContent className="text-sm text-neutral-700 dark:text-neutral-300">
-                                                {item.caption}
-                                            </CardContent>
-                                        )}
-                                    </Card>
-                                ))}
+                                    );
+                                })}
                             </div>
                         )}
                     </section>
@@ -205,34 +294,66 @@ export default function Layanan() {
                                 Belum ada event yang tersedia.
                             </div>
                         ) : (
-                            <div className="mt-4 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
-                                {events.map((item) => (
-                                    <Card
-                                        key={item.id}
-                                        className="overflow-hidden"
-                                    >
-                                        <div className="h-40 w-full bg-neutral-100 dark:bg-neutral-900">
-                                            {item.image_url ? (
-                                                <img
-                                                    src={item.image_url}
-                                                    alt={
-                                                        item.caption || "Event"
-                                                    }
-                                                    className="h-full w-full object-cover"
-                                                />
-                                            ) : (
-                                                <div className="h-full w-full flex items-center justify-center text-neutral-500">
-                                                    No Image
-                                                </div>
+                            <div className={`mt-4 ${gridClass(events.length)}`}>
+                                {events.map((item, i) => {
+                                    const url = toStorageUrl(item.image_url);
+                                    const tall = events.length === 1;
+                                    const h = tall ? "h-80 sm:h-96" : "h-40";
+                                    return (
+                                        <div
+                                            key={item.id}
+                                            className="overflow-hidden rounded-xl border border-slate-300 dark:border-slate-700"
+                                        >
+                                            <div
+                                                className={`relative ${h} w-full bg-neutral-100 dark:bg-neutral-900`}
+                                            >
+                                                {url ? (
+                                                    <a
+                                                        href={url}
+                                                        onClick={(e) => {
+                                                            e.preventDefault();
+                                                            const gi =
+                                                                eIndexMap.get(
+                                                                    i
+                                                                );
+                                                            if (
+                                                                gi !== undefined
+                                                            ) {
+                                                                eLgRef.current?.openGallery(
+                                                                    gi
+                                                                );
+                                                            }
+                                                        }}
+                                                        className="block"
+                                                        aria-label={
+                                                            item.caption ||
+                                                            "Event"
+                                                        }
+                                                    >
+                                                        <img
+                                                            src={url}
+                                                            alt={
+                                                                item.caption ||
+                                                                "Event"
+                                                            }
+                                                            className={`w-full ${h} object-cover`}
+                                                            loading="lazy"
+                                                        />
+                                                    </a>
+                                                ) : (
+                                                    <div className="h-full w-full flex items-center justify-center text-neutral-500">
+                                                        No Image
+                                                    </div>
+                                                )}
+                                            </div>
+                                            {item.caption && (
+                                                <p className="text-sm text-center text-neutral-700 dark:text-neutral-300 p-3">
+                                                    {item.caption}
+                                                </p>
                                             )}
                                         </div>
-                                        {item.caption && (
-                                            <CardContent className="text-sm text-neutral-700 dark:text-neutral-300">
-                                                {item.caption}
-                                            </CardContent>
-                                        )}
-                                    </Card>
-                                ))}
+                                    );
+                                })}
                             </div>
                         )}
                     </section>
@@ -250,6 +371,37 @@ export default function Layanan() {
                         <ContactForm />
                     </div>
                 </section>
+
+                <LightGallery
+                    onInit={(detail) => {
+                        sLgRef.current = detail.instance;
+                    }}
+                    dynamic
+                    dynamicEl={sGalleryItems.map((g) => ({
+                        src: g.url,
+                        thumb: g.url,
+                        subHtml: g.caption,
+                    }))}
+                    speed={500}
+                    plugins={[lgThumbnail, lgZoom]}
+                    download={false}
+                    showThumbByDefault={true}
+                />
+                <LightGallery
+                    onInit={(detail) => {
+                        eLgRef.current = detail.instance;
+                    }}
+                    dynamic
+                    dynamicEl={eGalleryItems.map((g) => ({
+                        src: g.url,
+                        thumb: g.url,
+                        subHtml: g.caption,
+                    }))}
+                    speed={500}
+                    plugins={[lgThumbnail, lgZoom]}
+                    download={false}
+                    showThumbByDefault={true}
+                />
             </main>
         </SiteLayout>
     );
