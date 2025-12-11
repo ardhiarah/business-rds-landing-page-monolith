@@ -8,7 +8,7 @@ import {
     CardContent,
 } from "../Components/ui/card";
 import ContactForm from "../Components/ContactForm";
-import { usePage } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 
 export default function Home() {
     const { clientLogos = [] } = usePage().props;
@@ -45,18 +45,14 @@ export default function Home() {
                                 kelulusan tinggi.
                             </p>
                             <div className="mt-8 flex flex-wrap gap-3">
-                                <a href="/layanan">
+                                <Link href="/layanan">
                                     <Button size="lg">Lihat Layanan</Button>
-                                </a>
-                                <a
-                                    href="https://rds-indonesia.com/"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                >
+                                </Link>
+                                <Link href="/tentang">
                                     <Button variant="outline" size="lg">
                                         Pelajari Lebih Lanjut
                                     </Button>
-                                </a>
+                                </Link>
                             </div>
                             <div className="mt-8 flex items-center gap-6 text-xs text-neutral-600 dark:text-neutral-400">
                                 <div className="flex items-center gap-2">
@@ -174,16 +170,16 @@ export default function Home() {
                         lainnya.
                     </p>
                     <div className="mt-4">
-                        <a href="/klien">
+                        <Link href="/klien">
                             <Button variant="outline" size="sm">
                                 Lihat Semua Klien
                             </Button>
-                        </a>
+                        </Link>
                     </div>
                     <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
                         {clientLogos.length === 0
                             ? Array.from({ length: 8 }).map((_, i) => (
-                                  <a key={i} href="/klien" className="block">
+                                  <Link key={i} href="/klien" className="block">
                                       <div className="group relative flex h-20 items-center justify-center rounded-lg border border-neutral-200 bg-white text-sm text-neutral-600 dark:border-neutral-800 dark:bg-black dark:text-neutral-400">
                                           <span>Logo Klien</span>
                                           <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-black/50 opacity-0 group-hover:opacity-100 transition">
@@ -192,10 +188,10 @@ export default function Home() {
                                               </span>
                                           </div>
                                       </div>
-                                  </a>
+                                  </Link>
                               ))
                             : clientLogos.map((logo) => (
-                                  <a
+                                  <Link
                                       key={logo.id}
                                       href="/klien"
                                       className="block"
@@ -221,7 +217,7 @@ export default function Home() {
                                               </span>
                                           </div>
                                       </div>
-                                  </a>
+                                  </Link>
                               ))}
                     </div>
                 </div>
@@ -343,9 +339,9 @@ export default function Home() {
                         </Card>
                     </div>
                     <div className="mt-8">
-                        <a href="/layanan">
+                        <Link href="/layanan">
                             <Button size="lg">Lihat Program Lengkap</Button>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </section>
