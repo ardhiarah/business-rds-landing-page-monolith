@@ -3,7 +3,7 @@ import Footer from "../Components/Footer";
 
 export default function SiteLayout({ children }) {
     return (
-        <div className="min-h-screen bg-white font-sans dark:bg-black">
+        <div className="min-h-screen bg-slate-950 font-sans text-slate-50">
             <Navbar />
             <main>{children}</main>
             <Footer />

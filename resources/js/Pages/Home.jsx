@@ -9,356 +9,323 @@ import {
 } from "../Components/ui/card";
 import ContactForm from "../Components/ContactForm";
 import { Link, usePage } from "@inertiajs/react";
+import { CheckCircle2, TrendingUp, Users, ShieldCheck } from "lucide-react"; // Pastikan install lucide-react jika belum
 
 export default function Home() {
     const { clientLogos = [] } = usePage().props;
+
     return (
         <SiteLayout>
-            <section className="relative overflow-hidden">
-                <div className="mx-auto max-w-6xl px-6 pt-8 md:pt-20 pb-16">
-                    <div className="relative mb-6 md:hidden">
-                        <div className="relative h-48 w-full overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
-                            <img
-                                src="/images/rds-sona-topas-tower.png"
-                                alt="RDS Sona Topas Tower"
-                                className="size-full object-cover object-top"
-                            />
-                        </div>
-                    </div>
-                    <div className="grid items-center gap-10 md:grid-cols-2">
-                        <div>
-                            <Badge className="mb-4">
-                                Perbankan • Sertifikasi Manajemen Risiko
+            {/* HERO SECTION: Menggunakan Gradient & Layout yang lebih kuat */}
+            <section className="relative overflow-hidden bg-slate-950 text-white">
+                {/* Background Pattern Abstrak (Opsional untuk estetika) */}
+                <div className="absolute top-0 -left-20 h-96 w-96 rounded-full bg-purple-600 opacity-20 blur-3xl filter" />
+                <div className="absolute bottom-0 -right-20 h-96 w-96 rounded-full bg-indigo-600 opacity-20 blur-3xl filter" />
+
+                <div className="relative mx-auto max-w-7xl px-6 pt-16 pb-24 lg:pt-32">
+                    <div className="grid gap-12 lg:grid-cols-2 items-center">
+                        <div className="relative z-10">
+                            <Badge className="mb-6 bg-purple-600/20 text-purple-300 hover:bg-purple-600/30 border-purple-500/50 px-4 py-1.5 text-sm uppercase tracking-wider">
+                                #1 Mitra Manajemen Risiko
                             </Badge>
-                            <h1 className="text-4xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
-                                Raharja Duta Solusindo
+                            <h1 className="text-4xl font-extrabold tracking-tight leading-tight sm:text-6xl text-white">
+                                Solusi Cerdas <br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-300">
+                                    Sertifikasi Perbankan
+                                </span>
                             </h1>
-                            <p className="mt-2 text-lg font-medium text-black dark:text-white">
-                                Partner dalam memahami Manajemen Risiko dan
-                                Lulus Ujian Sertifikasi Manajemen Risiko
+                            <p className="mt-6 text-lg text-slate-300 leading-relaxed max-w-xl">
+                                PT Raharja Duta Solusindo (RDS) membantu
+                                institusi keuangan meningkatkan kompetensi
+                                manajemen risiko dengan tingkat kelulusan
+                                sertifikasi yang terbukti tinggi.
                             </p>
-                            <p className="mt-4 text-neutral-700 dark:text-neutral-300">
-                                PT Raharja Duta Solusindo membantu bank dan
-                                lembaga keuangan meningkatkan kapabilitas
-                                manajemen risiko melalui program refreshment dan
-                                pembekalan ujian bersertifikat dengan tingkat
-                                kelulusan tinggi.
-                            </p>
-                            <div className="mt-8 flex flex-wrap gap-3">
+
+                            <div className="mt-8 flex flex-wrap gap-4">
                                 <Link href="/layanan">
-                                    <Button size="lg">Lihat Layanan</Button>
+                                    <Button
+                                        size="lg"
+                                        className="bg-purple-600 hover:bg-purple-500 text-white border-0 shadow-lg shadow-purple-900/20 h-12 px-8 text-base"
+                                    >
+                                        Lihat Layanan Kami
+                                    </Button>
                                 </Link>
                                 <Link href="/tentang">
-                                    <Button variant="outline" size="lg">
-                                        Pelajari Lebih Lanjut
+                                    <Button
+                                        variant="outline"
+                                        size="lg"
+                                        className="border-slate-700 bg-transparent text-white hover:bg-slate-800 hover:text-white h-12 px-8 text-base"
+                                    >
+                                        Tentang RDS
                                     </Button>
                                 </Link>
                             </div>
-                            <div className="mt-8 flex items-center gap-6 text-xs text-neutral-600 dark:text-neutral-400">
-                                <div className="flex items-center gap-2">
-                                    <img
-                                        src="/globe.svg"
-                                        alt="globe"
-                                        width="20"
-                                        height="20"
-                                    />
-                                    <span>25+ Bank di Indonesia</span>
+
+                            {/* Statistik Highlight dalam Hero */}
+                            <div className="mt-12 grid grid-cols-3 gap-6 border-t border-slate-800 pt-8">
+                                <div>
+                                    <h3 className="text-3xl font-bold text-white">
+                                        95%+
+                                    </h3>
+                                    <p className="text-sm text-slate-400 mt-1">
+                                        Tingkat Kelulusan
+                                    </p>
                                 </div>
-                                <div className="flex items-center gap-2">
-                                    <img
-                                        src="/window.svg"
-                                        alt="window"
-                                        width="20"
-                                        height="20"
-                                    />
-                                    <span>18.000+ Peserta</span>
+                                <div>
+                                    <h3 className="text-3xl font-bold text-white">
+                                        25+
+                                    </h3>
+                                    <p className="text-sm text-slate-400 mt-1">
+                                        Mitra Bank
+                                    </p>
                                 </div>
-                                <div className="flex items-center gap-2">
-                                    <img
-                                        src="/file.svg"
-                                        alt="file"
-                                        width="20"
-                                        height="20"
-                                    />
-                                    <span>Tingkat Kelulusan 95–100%</span>
+                                <div>
+                                    <h3 className="text-3xl font-bold text-white">
+                                        18k+
+                                    </h3>
+                                    <p className="text-sm text-slate-400 mt-1">
+                                        Alumni Peserta
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                        <div className="relative hidden md:block">
-                            <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-xl">
+
+                        {/* Image Hero dengan Frame Modern */}
+                        <div className="relative hidden lg:block">
+                            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-700/50">
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent z-10" />
                                 <img
                                     src="/images/rds-sona-topas-tower.png"
-                                    alt="RDS Sona Topas Tower"
-                                    className="size-full object-cover object-top"
+                                    alt="RDS Office Sona Topas Tower"
+                                    className="h-full w-full object-cover transform hover:scale-105 transition duration-700"
                                 />
+                                <div className="absolute bottom-6 left-6 z-20">
+                                    <div className="flex items-center gap-2 text-white font-medium bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
+                                        <ShieldCheck className="w-5 h-5 text-green-400" />
+                                        <span>Trusted Risk Partner</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section className="py-12">
+            {/* WELCOME SECTION: Menggunakan Layout Asimetris & Icon */}
+            <section className="py-20 bg-white dark:bg-slate-950">
                 <div className="mx-auto max-w-6xl px-6">
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-                        <div className="md:max-w-2xl">
-                            <Badge className="mb-3">Welcome to RDS</Badge>
-                            <h2 className="text-2xl font-semibold text-black dark:text-white">
-                                Raharja Duta Solusindo (RDS)
+                    <div className="flex flex-col md:flex-row gap-12">
+                        <div className="md:w-1/2">
+                            <h2 className="text-3xl font-bold text-slate-900 dark:text-white leading-tight">
+                                Mengapa Memilih <br />
+                                <span className="text-purple-600">
+                                    Raharja Duta Solusindo?
+                                </span>
                             </h2>
-                            <p className="mt-3 text-neutral-700 dark:text-neutral-300">
-                                Kami adalah lembaga training yang memberikan
-                                jasa pembekalan ujian sertifikasi Manajemen
-                                Risiko dengan tujuan peserta paham risk
-                                management dan lulus 100%, serta penyelenggara
-                                seminar/refreshment bagi pemegang sertifikat
-                                agar pengetahuan selalu up to date dan sesuai
-                                ketentuan Bank Indonesia/OJK.
+                            <p className="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
+                                Kami bukan sekadar penyelenggara training. Kami
+                                adalah mitra strategis yang memastikan tim Anda
+                                tidak hanya lulus ujian, tetapi benar-benar
+                                memahami esensi Manajemen Risiko sesuai regulasi
+                                Bank Indonesia & OJK.
                             </p>
-                            <p className="mt-2 text-neutral-700 dark:text-neutral-300">
-                                RDS menyelenggarakan program pembekalan dan
-                                program refreshment, baik inhouse maupun public.
-                            </p>
-                        </div>
-                        <div className="md:max-w-xl">
-                            <Badge className="mb-3">Keunggulan RDS</Badge>
-                            <ul className="list-disc pl-5 space-y-2 text-neutral-700 dark:text-neutral-300">
-                                <li>
-                                    Pengurus perusahaan langsung menjadi
-                                    marketer sehingga keputusan cepat.
-                                </li>
-                                <li>
-                                    Berpengalaman menyelenggarakan refreshment
-                                    18.000+ peserta dari 25 bank; pembekalan
-                                    sertifikasi dengan kelulusan 95–100%.
-                                </li>
-                                <li>
-                                    Trainer profesional yang membuat peserta
-                                    paham Manajemen Risiko hingga lulus 100%.
-                                </li>
-                                <li>
-                                    Buku panduan training up to date dari BSMR
-                                    atau LSPP.
-                                </li>
-                                <li>
-                                    Harga kompetitif dengan fokus kelulusan
-                                    tinggi.
-                                </li>
-                                <li>
-                                    Metode ramah peserta dengan latihan soal/try
-                                    out up to date dan bank soal 2.000 butir.
-                                </li>
-                                <li>
-                                    Supporting officer yang helpful dan
-                                    berpengalaman.
-                                </li>
+                            <ul className="mt-8 space-y-4">
+                                {[
+                                    "Keputusan cepat (Owner as Marketer)",
+                                    "Metode ramah peserta & Bank Soal up-to-date",
+                                    "Trainer Praktisi Profesional",
+                                    "Harga kompetitif dengan kualitas premium",
+                                ].map((item, idx) => (
+                                    <li
+                                        key={idx}
+                                        className="flex items-start gap-3"
+                                    >
+                                        <CheckCircle2 className="w-6 h-6 text-purple-600 flex-shrink-0" />
+                                        <span className="text-slate-700 dark:text-slate-200">
+                                            {item}
+                                        </span>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            <section
-                id="klien"
-                className="bg-neutral-50 py-16 dark:bg-neutral-950"
-            >
-                <div className="mx-auto max-w-6xl px-6">
-                    <h2 className="text-2xl font-semibold text-black dark:text-white">
-                        Klien yang Dilayani
-                    </h2>
-                    <p className="mt-2 text-neutral-700 dark:text-neutral-300">
-                        Lebih dari 25 bank di Indonesia dan lembaga keuangan
-                        lainnya.
-                    </p>
-                    <div className="mt-4">
-                        <Link href="/klien">
-                            <Button variant="outline" size="sm">
-                                Lihat Semua Klien
-                            </Button>
-                        </Link>
-                    </div>
-                    <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
-                        {clientLogos.length === 0
-                            ? Array.from({ length: 8 }).map((_, i) => (
-                                  <Link key={i} href="/klien" className="block">
-                                      <div className="group relative flex h-20 items-center justify-center rounded-lg border border-neutral-200 bg-white text-sm text-neutral-600 dark:border-neutral-800 dark:bg-black dark:text-neutral-400">
-                                          <span>Logo Klien</span>
-                                          <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-black/50 opacity-0 group-hover:opacity-100 transition">
-                                              <span className="text-white text-xs">
-                                                  Logo Klien
-                                              </span>
-                                          </div>
-                                      </div>
-                                  </Link>
-                              ))
-                            : clientLogos.map((logo) => (
-                                  <Link
-                                      key={logo.id}
-                                      href="/klien"
-                                      className="block"
-                                      title={logo.name || "Logo Klien"}
-                                  >
-                                      <div className="group relative flex h-20 items-center justify-center rounded-lg border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-black">
-                                          {logo.logo_url ? (
-                                              <img
-                                                  src={logo.logo_url}
-                                                  alt={
-                                                      logo.name || "Logo Klien"
-                                                  }
-                                                  className="h-12 object-contain"
-                                              />
-                                          ) : (
-                                              <span className="text-sm text-neutral-600 dark:text-neutral-400">
-                                                  Logo Klien
-                                              </span>
-                                          )}
-                                          <div className="absolute inset-0 flex items-center rounded-lg justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition">
-                                              <span className="text-white text-xs">
-                                                  {logo.name || "Logo Klien"}
-                                              </span>
-                                          </div>
-                                      </div>
-                                  </Link>
-                              ))}
-                    </div>
-                </div>
-            </section>
-
-            <section
-                id="layanan"
-                className="bg-neutral-50 pb-16 dark:bg-neutral-950"
-            >
-                <div className="mx-auto max-w-6xl px-6">
-                    <h2 className="text-2xl font-semibold text-black dark:text-white">
-                        Layanan Utama
-                    </h2>
-                    <p className="mt-2 text-neutral-700 dark:text-neutral-300">
-                        Program pelatihan dan pembekalan ujian sertifikasi
-                        Manajemen Risiko untuk berbagai level.
-                    </p>
-                    <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                        <Card>
-                            <CardHeader>
-                                <CardTitle>
-                                    Refreshment Manajemen Risiko
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                Program penyegaran untuk karyawan perbankan agar
-                                selaras dengan kebijakan dan praktik terbaru.
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardHeader>
-                                <CardTitle>
-                                    Pembekalan Ujian Sertifikasi
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                Materi komprehensif dan latihan soal up to date
-                                untuk persiapan ujian dengan efektif.
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardHeader>
-                                <CardTitle>Try Out dan Bank Soal</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                Simulasi try out dan akses ke bank soal 2.000
-                                butir untuk meningkatkan kepercayaan diri.
-                            </CardContent>
-                        </Card>
-                    </div>
-                </div>
-            </section>
-
-            <section id="keunggulan" className="py-16">
-                <div className="mx-auto max-w-6xl px-6">
-                    <h2 className="text-2xl font-semibold text-black dark:text-white">
-                        Program Utama
-                    </h2>
-                    <div className="mt-8 grid gap-6 sm:grid-cols-2">
-                        <Card>
-                            <CardHeader>
-                                <CardTitle>
-                                    Training Sertifikasi Manajemen Risiko
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                Pembekalan ujian Level 1–5 dengan ujian ke LSPP
-                                atau BSMR. Tujuan utama: paham dan lulus ujian.
-                                Didampingi trainer praktisi perbankan dengan
-                                tingkat kelulusan rata-rata 95–100%.
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardHeader>
-                                <CardTitle>
-                                    Seminar/Refreshment Manajemen Risiko
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                Perpanjangan masa berlaku sertifikat ke
-                                LSPP/BSMR. Pembicara level nasional: ekonom,
-                                direksi bank asing/swasta/BPD, mantan direksi
-                                BUMN, pimpinan LKB, mantan menteri. Topik:
-                                Strategic Risk, Credit Risk, Operational Risk,
-                                FINTECH.
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardHeader>
-                                <CardTitle>
-                                    Consulting (Free of Charge)
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                Advisor pengelolaan database pemegang
-                                sertifikat, pengingat refreshment agar masa
-                                berlaku tidak kadaluarsa, penjadwalan. Membantu
-                                Divisi Learning Center memenuhi KPI.
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardHeader>
-                                <CardTitle>Training Bidang Lain</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                Treasury Dealer, Credit, Funding & Services,
-                                Operational, Internal Audit, General Banking,
-                                Compliance.
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardHeader>
-                                <CardTitle>Training Soft Skill</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                Leadership, Selling Skill, Negotiation Skill,
-                                Customer Services.
-                            </CardContent>
-                        </Card>
-                    </div>
-                    <div className="mt-8">
-                        <Link href="/layanan">
-                            <Button size="lg">Lihat Program Lengkap</Button>
-                        </Link>
-                    </div>
-                </div>
-            </section>
-
-            <section className="bg-neutral-50 py-16 dark:bg-neutral-950">
-                <div className="mx-auto max-w-6xl px-6">
-                    <div className="flex flex-col items-center text-center">
-                        <h2 className="text-2xl font-semibold text-black dark:text-white">
-                            Hubungi Kami
-                        </h2>
-                        <p className="mt-2 max-w-2xl text-neutral-700 dark:text-neutral-300">
-                            Isi formulir untuk konsultasi program pelatihan dan
-                            pembekalan sertifikasi Manajemen Risiko.
-                        </p>
-                        <div className="mt-8 w-full">
-                            <ContactForm />
+                        <div className="md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <Card className="h-fit bg-slate-50 dark:bg-slate-900 border-none shadow-sm hover:shadow-md transition-shadow">
+                                <CardHeader>
+                                    <TrendingUp className="w-10 h-10 text-purple-600 mb-2" />
+                                    <CardTitle className="text-xl">
+                                        Result Oriented
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent className="text-slate-600 dark:text-slate-400">
+                                    Fokus utama kami adalah pemahaman mendalam
+                                    yang menghasilkan kelulusan ujian 100%.
+                                </CardContent>
+                            </Card>
+                            <Card className="h-fit bg-slate-50 dark:bg-slate-900 border-none shadow-sm hover:shadow-md transition-shadow">
+                                <CardHeader>
+                                    <Users className="w-10 h-10 text-purple-600 mb-2" />
+                                    <CardTitle className="text-xl">
+                                        Expert Support
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent className="text-slate-600 dark:text-slate-400">
+                                    Didukung oleh supporting officer yang
+                                    helpful dan berpengalaman menangani ribuan
+                                    peserta.
+                                </CardContent>
+                            </Card>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* SERVICES PREVIEW: Card dengan Hover Effect yang lebih baik */}
+            <section className="py-20 bg-slate-50 dark:bg-slate-900">
+                <div className="mx-auto max-w-6xl px-6">
+                    <div className="text-center max-w-2xl mx-auto mb-16">
+                        <Badge
+                            variant="outline"
+                            className="mb-4 border-purple-600 text-purple-600"
+                        >
+                            Layanan Unggulan
+                        </Badge>
+                        <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
+                            Program Komprehensif
+                        </h2>
+                        <p className="mt-4 text-slate-600 dark:text-slate-400">
+                            Dari persiapan ujian hingga level eksekutif, kami
+                            menyediakan kurikulum terbaik.
+                        </p>
+                    </div>
+
+                    <div className="grid gap-8 md:grid-cols-3">
+                        {/* Service 1 */}
+                        <div className="group relative bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-slate-200 dark:border-slate-800">
+                            <div className="h-12 w-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-6 group-hover:bg-purple-600 transition-colors">
+                                <ShieldCheck className="w-6 h-6 text-purple-600 group-hover:text-white transition-colors" />
+                            </div>
+                            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
+                                Sertifikasi Manajemen Risiko
+                            </h3>
+                            <p className="text-slate-600 dark:text-slate-400 mb-6">
+                                Pembekalan ujian Level 1–5 (LSPP/BSMR). Garansi
+                                pemahaman dengan simulasi latihan soal intensif.
+                            </p>
+                            <Link
+                                href="/layanan"
+                                className="text-purple-600 font-semibold flex items-center gap-2 group-hover:gap-3 transition-all"
+                            >
+                                Selengkapnya <span>&rarr;</span>
+                            </Link>
+                        </div>
+
+                        {/* Service 2 */}
+                        <div className="group relative bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-slate-200 dark:border-slate-800">
+                            <div className="h-12 w-12 bg-amber-100 dark:bg-amber-900/30 rounded-lg flex items-center justify-center mb-6 group-hover:bg-amber-500 transition-colors">
+                                <TrendingUp className="w-6 h-6 text-amber-600 group-hover:text-white transition-colors" />
+                            </div>
+                            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
+                                Executive Refreshment
+                            </h3>
+                            <p className="text-slate-600 dark:text-slate-400 mb-6">
+                                Seminar eksklusif dengan pembicara level
+                                nasional untuk memperpanjang masa berlaku
+                                sertifikat.
+                            </p>
+                            <Link
+                                href="/layanan"
+                                className="text-amber-600 font-semibold flex items-center gap-2 group-hover:gap-3 transition-all"
+                            >
+                                Selengkapnya <span>&rarr;</span>
+                            </Link>
+                        </div>
+
+                        {/* Service 3 */}
+                        <div className="group relative bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-slate-200 dark:border-slate-800">
+                            <div className="h-12 w-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center mb-6 group-hover:bg-emerald-600 transition-colors">
+                                <Users className="w-6 h-6 text-emerald-600 group-hover:text-white transition-colors" />
+                            </div>
+                            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
+                                Soft Skill & Leadership
+                            </h3>
+                            <p className="text-slate-600 dark:text-slate-400 mb-6">
+                                Pengembangan SDM perbankan meliputi Selling
+                                Skill, Negotiation, hingga Customer Service
+                                Excellence.
+                            </p>
+                            <Link
+                                href="/layanan"
+                                className="text-emerald-600 font-semibold flex items-center gap-2 group-hover:gap-3 transition-all"
+                            >
+                                Selengkapnya <span>&rarr;</span>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* CLIENT SECTION: Logo Grid yang lebih rapi */}
+            <section className="py-20 bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800">
+                <div className="mx-auto max-w-6xl px-6">
+                    <div className="flex items-center justify-between mb-10">
+                        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+                            Dipercaya Oleh
+                        </h2>
+                        <Link
+                            href="/klien"
+                            className="text-purple-600 font-medium hover:underline"
+                        >
+                            Lihat Semua Klien
+                        </Link>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 opacity-70 hover:opacity-100 transition-opacity">
+                        {clientLogos.slice(0, 6).map((logo) => (
+                            <div
+                                key={logo.id || Math.random()}
+                                className="flex items-center justify-center h-20 border border-slate-100 rounded-lg p-4 grayscale hover:grayscale-0 transition-all"
+                            >
+                                {logo.logo_url ? (
+                                    <img
+                                        src={logo.logo_url}
+                                        alt={logo.name}
+                                        className="max-h-full object-contain"
+                                    />
+                                ) : (
+                                    <span className="text-xs text-slate-400 font-semibold">
+                                        {logo.name || "CLIENT LOGO"}
+                                    </span>
+                                )}
+                            </div>
+                        ))}
+                        {/* Fallback jika logo kosong, hapus di production */}
+                        {clientLogos.length === 0 &&
+                            Array.from({ length: 6 }).map((_, i) => (
+                                <div
+                                    key={i}
+                                    className="flex items-center justify-center h-20 border border-slate-100 rounded-lg bg-slate-50 text-slate-400 font-bold text-sm"
+                                >
+                                    LOGO BANK
+                                </div>
+                            ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* CTA SECTION: Footer Call to Action yang kuat */}
+            <section className="py-24 bg-slate-900 relative overflow-hidden">
+                <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
+                <div className="mx-auto max-w-4xl px-6 text-center relative z-10">
+                    <h2 className="text-3xl font-bold text-white mb-6">
+                        Siap Meningkatkan Kompetensi Tim Anda?
+                    </h2>
+                    <p className="text-slate-300 mb-10 text-lg">
+                        Hubungi kami untuk konsultasi jadwal training in-house
+                        atau public class yang sesuai dengan kebutuhan institusi
+                        Anda.
+                    </p>
+                    <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-2xl text-left max-w-xl mx-auto">
+                        <ContactForm />
                     </div>
                 </div>
             </section>

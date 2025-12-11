@@ -19,150 +19,191 @@ import ContactForm from "../Components/ContactForm";
 export default function Kontak() {
     return (
         <SiteLayout>
-            <main className="mx-auto max-w-6xl px-6 py-12">
-                <div className="flex items-center justify-between">
-                    <div>
-                        <Badge>Kontak</Badge>
-                        <h1 className="mt-3 text-3xl font-bold text-black dark:text-white">
-                            Informasi Kontak
-                        </h1>
-                        <p className="mt-2 text-neutral-700 dark:text-neutral-300">
-                            Berikut daftar informasi perusahaan yang dapat
-                            digunakan untuk terhubung dengan kami.
-                        </p>
-                    </div>
-                </div>
+            {/* Hero Section */}
+            <section className="relative overflow-hidden bg-slate-950 py-20 text-white">
+                <div className="absolute top-0 right-0 h-96 w-96 rounded-full bg-purple-900 opacity-20 blur-3xl filter" />
+                <div className="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-indigo-900 opacity-20 blur-3xl filter" />
 
-                <section className="mt-8">
-                    <div className="mt-6 mb-10 text-sm text-neutral-700 dark:text-neutral-300">
-                        <div className="grid gap-6 md:grid-cols-2">
-                            <Card>
-                                <CardHeader>
-                                    <CardTitle className="text-xl">
-                                        Informasi Kantor
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <div className="space-y-2">
-                                        <div className="flex items-start gap-2">
-                                            <Building className="size-4 mt-0.5" />
-                                            <p className="font-semibold">
+                <div className="relative mx-auto max-w-6xl px-6 text-center">
+                    <Badge className="mb-6 bg-purple-900/30 text-purple-300 hover:bg-purple-900/40 border-purple-700/50 px-4 py-1.5 text-sm uppercase tracking-wider">
+                        Hubungi Kami
+                    </Badge>
+                    <h1 className="text-4xl font-extrabold tracking-tight leading-tight sm:text-6xl text-white">
+                        Informasi Kontak
+                    </h1>
+                    <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-300 leading-relaxed">
+                        Kami siap membantu Anda. Berikut adalah informasi kontak
+                        perusahaan kami.
+                    </p>
+                </div>
+            </section>
+
+            <main className="bg-white dark:bg-slate-950 min-h-screen">
+                <section className="mx-auto max-w-6xl px-6 py-20">
+                    <div className="grid gap-8 lg:grid-cols-2">
+                        {/* Office Info */}
+                        <Card className="border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-lg transition-all duration-300">
+                            <CardHeader>
+                                <CardTitle className="flex items-center gap-3 text-xl font-bold text-slate-900 dark:text-white">
+                                    <Building className="h-6 w-6 text-purple-600" />
+                                    Informasi Kantor
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent className="space-y-6">
+                                <div className="space-y-4 rounded-lg bg-slate-50 dark:bg-slate-950/50 p-6">
+                                    <div className="flex items-start gap-4">
+                                        <div className="rounded-lg bg-purple-100 dark:bg-purple-900/30 p-2 text-purple-600 dark:text-purple-400">
+                                            <Building className="h-5 w-5" />
+                                        </div>
+                                        <div>
+                                            <h3 className="font-semibold text-slate-900 dark:text-white">
                                                 PT RAHARJA DUTA SOLUSINDO
+                                            </h3>
+                                            <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+                                                Solusi Teknologi & Keamanan
+                                                Terpercaya
                                             </p>
                                         </div>
-                                        <div className="flex items-start gap-2">
-                                            <MapPin className="size-4 mt-0.5" />
+                                    </div>
+                                    <div className="flex items-start gap-4">
+                                        <div className="rounded-lg bg-purple-100 dark:bg-purple-900/30 p-2 text-purple-600 dark:text-purple-400">
+                                            <MapPin className="h-5 w-5" />
+                                        </div>
+                                        <div className="text-sm text-slate-600 dark:text-slate-400">
+                                            <p>Sona Topas Tower Lantai 5A</p>
+                                            <p>Jl. Jend Sudirman Kav.26</p>
+                                            <p>Jakarta Selatan, Indonesia</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="space-y-4">
+                                    <h4 className="font-medium text-slate-900 dark:text-white">
+                                        Kontak Langsung
+                                    </h4>
+                                    <div className="grid gap-4 sm:grid-cols-2">
+                                        <div className="flex items-center gap-3 rounded-lg border border-slate-200 dark:border-slate-800 p-3 hover:border-purple-500 transition-colors">
+                                            <Phone className="h-5 w-5 text-purple-600" />
                                             <div>
-                                                <p>
-                                                    Sona Topas Tower Lantai 5A
+                                                <p className="text-xs text-slate-500">
+                                                    Telepon
                                                 </p>
-                                                <p>Jl. Jend Sudirman Kav.26</p>
-                                                <p>Jakarta Selatan</p>
+                                                <p className="font-medium text-slate-900 dark:text-white">
+                                                    021-29858082
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center gap-3 rounded-lg border border-slate-200 dark:border-slate-800 p-3 hover:border-purple-500 transition-colors">
+                                            <Printer className="h-5 w-5 text-purple-600" />
+                                            <div>
+                                                <p className="text-xs text-slate-500">
+                                                    Fax
+                                                </p>
+                                                <p className="font-medium text-slate-900 dark:text-white">
+                                                    021-2506223
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="col-span-full flex items-center gap-3 rounded-lg border border-slate-200 dark:border-slate-800 p-3 hover:border-purple-500 transition-colors">
+                                            <Mail className="h-5 w-5 text-purple-600" />
+                                            <div className="flex-1">
+                                                <p className="text-xs text-slate-500">
+                                                    Email
+                                                </p>
+                                                <a
+                                                    href="mailto:solusindo@rds2015.com"
+                                                    className="font-medium text-purple-600 hover:underline"
+                                                >
+                                                    solusindo@rds2015.com
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
-                                    <table className="mt-6 w-full text-sm">
-                                        <tbody>
-                                            <tr>
-                                                <td className="py-1 pr-4 text-neutral-500">
-                                                    <span className="inline-flex items-center gap-2">
-                                                        <Phone className="size-4" />{" "}
-                                                        Telepon
-                                                    </span>
-                                                </td>
-                                                <td className="py-1 font-medium">
-                                                    021-29858082
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td className="py-1 pr-4 text-neutral-500">
-                                                    <span className="inline-flex items-center gap-2">
-                                                        <Printer className="size-4" />{" "}
-                                                        Fax
-                                                    </span>
-                                                </td>
-                                                <td className="py-1 font-medium">
-                                                    021-2506223
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td className="py-1 pr-4 text-neutral-500">
-                                                    <span className="inline-flex items-center gap-2">
-                                                        <Mail className="size-4" />{" "}
-                                                        Email
-                                                    </span>
-                                                </td>
-                                                <td className="py-1 font-medium">
-                                                    <a
-                                                        href="mailto:solusindo@rds2015.com"
-                                                        className="underline"
-                                                    >
-                                                        solusindo@rds2015.com
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td className="py-1 pr-4 text-neutral-500">
-                                                    <span className="inline-flex items-center gap-2">
-                                                        <PhoneCall className="size-4" />{" "}
-                                                        Phone (Ratih)
-                                                    </span>
-                                                </td>
-                                                <td className="py-1 font-medium">
+                                </div>
+
+                                <div className="space-y-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+                                    <h4 className="font-medium text-slate-900 dark:text-white">
+                                        Personal Contact (Mobile)
+                                    </h4>
+                                    <div className="grid gap-4 sm:grid-cols-2">
+                                        <div className="flex items-center gap-3">
+                                            <PhoneCall className="h-4 w-4 text-green-600" />
+                                            <div>
+                                                <p className="text-xs text-slate-500">
+                                                    Ratih
+                                                </p>
+                                                <p className="text-sm font-medium text-slate-900 dark:text-white">
                                                     0878-7651-2795
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td className="py-1 pr-4 text-neutral-500">
-                                                    <span className="inline-flex items-center gap-2">
-                                                        <PhoneCall className="size-4" />{" "}
-                                                        Phone (Soeyamto)
-                                                    </span>
-                                                </td>
-                                                <td className="py-1 font-medium">
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center gap-3">
+                                            <PhoneCall className="h-4 w-4 text-green-600" />
+                                            <div>
+                                                <p className="text-xs text-slate-500">
+                                                    Soeyamto
+                                                </p>
+                                                <p className="text-sm font-medium text-slate-900 dark:text-white">
                                                     0816-7931-63
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </CardContent>
-                            </Card>
-                            <Card>
-                                <CardHeader>
-                                    <CardTitle className="text-xl">
-                                        Lokasi
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <div className="overflow-hidden rounded-xl border">
-                                        <iframe
-                                            title="Sona Topas Tower"
-                                            src="https://www.google.com/maps?q=Sona+Topas+Tower&output=embed"
-                                            width="100%"
-                                            height="360"
-                                            loading="lazy"
-                                            referrerPolicy="no-referrer-when-downgrade"
-                                        />
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </CardContent>
-                            </Card>
+                                </div>
+                            </CardContent>
+                        </Card>
+
+                        {/* Location Map */}
+                        <Card className="flex flex-col border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-lg transition-all duration-300">
+                            <CardHeader>
+                                <CardTitle className="flex items-center gap-3 text-xl font-bold text-slate-900 dark:text-white">
+                                    <MapPin className="h-6 w-6 text-purple-600" />
+                                    Lokasi Kami
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent className="flex-1 p-0 overflow-hidden rounded-b-xl">
+                                <div className="h-full w-full min-h-[400px]">
+                                    <iframe
+                                        title="Sona Topas Tower"
+                                        src="https://www.google.com/maps?q=Sona+Topas+Tower&output=embed"
+                                        width="100%"
+                                        height="100%"
+                                        style={{
+                                            border: 0,
+                                            minHeight: "400px",
+                                        }}
+                                        allowFullScreen=""
+                                        loading="lazy"
+                                        referrerPolicy="no-referrer-when-downgrade"
+                                        className="h-full w-full"
+                                    />
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </div>
+
+                    {/* Contact Form Section */}
+                    <div className="mt-20">
+                        <div className="mb-10 text-center">
+                            <Badge className="mb-4 bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300">
+                                Kirim Pesan
+                            </Badge>
+                            <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
+                                Hubungi Kami
+                            </h2>
+                            <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
+                                Isi formulir berikut atau gunakan email untuk
+                                terhubung dengan tim RDS.
+                            </p>
+                        </div>
+                        <div className="mx-auto max-w-2xl rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-lg">
+                            <ContactForm />
                         </div>
                     </div>
-                    <ContactForm header={header} />
                 </section>
             </main>
         </SiteLayout>
     );
 }
 
-const header = (
-    <div className="mb-8">
-        <h2 className="text-2xl text-center font-semibold text-black dark:text-white">
-            Hubungi Kami
-        </h2>
-        <p className="mt-2 text-center text-neutral-700 dark:text-neutral-300">
-            Isi formulir berikut atau gunakan email untuk terhubung dengan tim
-            RDS.
-        </p>
-    </div>
-);
+const header = null; // Unused now as we integrated the header into the layout

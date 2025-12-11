@@ -38,13 +38,13 @@ export default function Navbar() {
         }`;
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b border-neutral-200 bg-white/70 backdrop-blur dark:border-neutral-800 dark:bg-black/70">
+        <header className="sticky top-0 z-50 w-full border-b border-slate-800 bg-slate-950/80 backdrop-blur-md">
             <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
                 <Link href="/" className="flex items-center gap-2">
-                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-black text-white dark:bg-white dark:text-black">
+                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-purple-600 text-white">
                         R
                     </span>
-                    <span className="text-sm font-bold tracking-wide">
+                    <span className="text-sm font-bold tracking-wide text-white">
                         RDS Risk Management
                     </span>
                 </Link>
@@ -55,7 +55,12 @@ export default function Navbar() {
                                 asChild
                                 className={desktopItemClass("/")}
                             >
-                                <Link href="/">Beranda</Link>
+                                <Link
+                                    href="/"
+                                    className="text-slate-300 hover:text-white transition-colors"
+                                >
+                                    Beranda
+                                </Link>
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
@@ -63,7 +68,12 @@ export default function Navbar() {
                                 asChild
                                 className={desktopItemClass("/tentang")}
                             >
-                                <Link href="/tentang">Tentang</Link>
+                                <Link
+                                    href="/tentang"
+                                    className="text-slate-300 hover:text-white transition-colors"
+                                >
+                                    Tentang
+                                </Link>
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
@@ -71,7 +81,12 @@ export default function Navbar() {
                                 asChild
                                 className={desktopItemClass("/layanan")}
                             >
-                                <Link href="/layanan">Layanan</Link>
+                                <Link
+                                    href="/layanan"
+                                    className="text-slate-300 hover:text-white transition-colors"
+                                >
+                                    Layanan
+                                </Link>
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
@@ -79,7 +94,12 @@ export default function Navbar() {
                                 asChild
                                 className={desktopItemClass("/klien")}
                             >
-                                <Link href="/klien">Klien</Link>
+                                <Link
+                                    href="/klien"
+                                    className="text-slate-300 hover:text-white transition-colors"
+                                >
+                                    Klien
+                                </Link>
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
@@ -87,7 +107,12 @@ export default function Navbar() {
                                 asChild
                                 className={desktopItemClass("/galeri")}
                             >
-                                <Link href="/galeri">Galeri</Link>
+                                <Link
+                                    href="/galeri"
+                                    className="text-slate-300 hover:text-white transition-colors"
+                                >
+                                    Galeri
+                                </Link>
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
@@ -95,14 +120,19 @@ export default function Navbar() {
                                 asChild
                                 className={desktopItemClass("/kontak")}
                             >
-                                <Link href="/kontak">Kontak</Link>
+                                <Link
+                                    href="/kontak"
+                                    className="text-slate-300 hover:text-white transition-colors"
+                                >
+                                    Kontak
+                                </Link>
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                     </NavigationMenu>
                 </nav>
                 <button
                     aria-label="Menu"
-                    className="cursor-pointer select-none md:hidden inline-flex items-center justify-center rounded-md border border-neutral-200 bg-white p-2 text-neutral-700 dark:border-neutral-800 dark:bg-black dark:text-neutral-300"
+                    className="cursor-pointer select-none md:hidden inline-flex items-center justify-center rounded-md border border-slate-800 bg-slate-900 p-2 text-slate-300 hover:bg-slate-800 hover:text-white"
                     onClick={() => setOpen(true)}
                 >
                     <Menu className="size-5" />
@@ -115,7 +145,7 @@ export default function Navbar() {
                             <motion.div
                                 role="dialog"
                                 aria-modal="true"
-                                className="fixed inset-0 z-100 bg-black/50 dark:bg-black/60"
+                                className="fixed inset-0 z-100 bg-black/80 backdrop-blur-sm"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
@@ -123,7 +153,7 @@ export default function Navbar() {
                                 onClick={() => setOpen(false)}
                             >
                                 <motion.div
-                                    className="absolute right-0 top-0 h-dvh w-4/5 max-w-sm border-l border-neutral-200 bg-white px-6 py-4 dark:border-neutral-800 dark:bg-black"
+                                    className="absolute right-0 top-0 h-dvh w-4/5 max-w-sm border-l border-slate-800 bg-slate-950 px-6 py-4"
                                     initial={{ x: "100%" }}
                                     animate={{ x: 0 }}
                                     exit={{ x: "100%" }}
@@ -140,16 +170,16 @@ export default function Navbar() {
                                             className="flex items-center gap-2"
                                             onClick={() => setOpen(false)}
                                         >
-                                            <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-black text-white dark:bg-white dark:text-black">
+                                            <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-purple-600 text-white">
                                                 R
                                             </span>
-                                            <span className="text-sm font-bold tracking-wide">
+                                            <span className="text-sm font-bold tracking-wide text-white">
                                                 RDS Risk Management
                                             </span>
                                         </Link>
                                         <button
                                             aria-label="Tutup"
-                                            className="cursor-pointer select-none inline-flex items-center justify-center rounded-md border border-neutral-200 bg-white p-2 text-neutral-700 dark:border-neutral-800 dark:bg-black dark:text-neutral-300"
+                                            className="cursor-pointer select-none inline-flex items-center justify-center rounded-md border border-slate-800 bg-slate-900 p-2 text-slate-300 hover:bg-slate-800 hover:text-white"
                                             onClick={() => setOpen(false)}
                                         >
                                             <X className="size-5" />
@@ -158,52 +188,42 @@ export default function Navbar() {
                                     <div className="mt-6 space-y-3">
                                         <Link
                                             href="/"
-                                            className={mobileLinkClass("/")}
+                                            className="block rounded-md px-3 py-2 text-sm text-slate-300 hover:bg-slate-900 hover:text-white"
                                             onClick={() => setOpen(false)}
                                         >
                                             Beranda
                                         </Link>
                                         <Link
                                             href="/tentang"
-                                            className={mobileLinkClass(
-                                                "/tentang"
-                                            )}
+                                            className="block rounded-md px-3 py-2 text-sm text-slate-300 hover:bg-slate-900 hover:text-white"
                                             onClick={() => setOpen(false)}
                                         >
                                             Tentang
                                         </Link>
                                         <Link
                                             href="/layanan"
-                                            className={mobileLinkClass(
-                                                "/layanan"
-                                            )}
+                                            className="block rounded-md px-3 py-2 text-sm text-slate-300 hover:bg-slate-900 hover:text-white"
                                             onClick={() => setOpen(false)}
                                         >
                                             Layanan
                                         </Link>
                                         <Link
                                             href="/klien"
-                                            className={mobileLinkClass(
-                                                "/klien"
-                                            )}
+                                            className="block rounded-md px-3 py-2 text-sm text-slate-300 hover:bg-slate-900 hover:text-white"
                                             onClick={() => setOpen(false)}
                                         >
                                             Klien
                                         </Link>
                                         <Link
                                             href="/galeri"
-                                            className={mobileLinkClass(
-                                                "/galeri"
-                                            )}
+                                            className="block rounded-md px-3 py-2 text-sm text-slate-300 hover:bg-slate-900 hover:text-white"
                                             onClick={() => setOpen(false)}
                                         >
                                             Galeri
                                         </Link>
                                         <Link
                                             href="/kontak"
-                                            className={mobileLinkClass(
-                                                "/kontak"
-                                            )}
+                                            className="block rounded-md px-3 py-2 text-sm text-slate-300 hover:bg-slate-900 hover:text-white"
                                             onClick={() => setOpen(false)}
                                         >
                                             Kontak

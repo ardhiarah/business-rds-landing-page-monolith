@@ -10,276 +10,225 @@ import {
 export default function Tentang() {
     return (
         <SiteLayout>
-            <main className="mx-auto max-w-6xl px-6 py-12">
-                <div className="flex items-center justify-between">
-                    <div>
-                        <Badge>Tentang RDS</Badge>
-                        <h1 className="mt-3 text-3xl font-bold text-black dark:text-white">
-                            PT Raharja Duta Solusindo
-                        </h1>
-                        <p className="mt-2 text-neutral-700 dark:text-neutral-300">
-                            Penyedia jasa training perbankan dan non-perbankan
-                            dengan fokus Manajemen Risiko.
-                        </p>
-                        <p className="mt-2 max-w-3xl text-neutral-700 dark:text-neutral-300">
-                            PT Raharja Duta Solusindo (RDS) adalah lembaga
-                            training yang didirikan oleh Soeyamto, SE (praktisi
-                            Perbankan di Bank Asing dan Pemerintah serta Lembaga
-                            Sertifikasi Profesi Perbankan) dan Ratih Dewi, S.Sos
-                            (praktisi Telkom Provider Internasional dan Lembaga
-                            Sertifikasi Profesi Perbankan).
-                        </p>
-                    </div>
+            {/* HERO SECTION */}
+            <section className="relative overflow-hidden bg-slate-950 py-20 text-white">
+                <div className="absolute top-0 -left-20 h-96 w-96 rounded-full bg-purple-900 opacity-20 blur-3xl filter" />
+                <div className="absolute bottom-0 -right-20 h-96 w-96 rounded-full bg-indigo-900 opacity-20 blur-3xl filter" />
+
+                <div className="relative mx-auto max-w-6xl px-6 text-center">
+                    <Badge className="mb-6 bg-purple-900/30 text-purple-300 hover:bg-purple-900/40 border-purple-700/50 px-4 py-1.5 text-sm uppercase tracking-wider">
+                        Tentang Kami
+                    </Badge>
+                    <h1 className="text-4xl font-extrabold tracking-tight leading-tight sm:text-6xl text-white">
+                        Membangun Kompetensi <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-300">
+                            Profesional Perbankan
+                        </span>
+                    </h1>
+                    <p className="mt-6 text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
+                        PT Raharja Duta Solusindo (RDS) hadir sebagai mitra
+                        strategis dalam pengembangan sumber daya manusia di
+                        sektor keuangan, dengan fokus pada integritas, kualitas,
+                        dan hasil nyata.
+                    </p>
                 </div>
+            </section>
 
-                <section className="mt-10 grid gap-6 md:grid-cols-2">
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Pengalaman Pelayanan</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            Sejak Januari 2016 sampai April 2019 telah melayani
-                            20 bank di Indonesia, mencakup bank asing, BUMN,
-                            swasta nasional, dan BPD.
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Kunci Sukses</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            Trainer berpengalaman di bank dan metode
-                            pembelajaran yang berorientasi pada tujuan: paham
-                            dan lulus ujian sertifikasi Manajemen Risiko.
-                        </CardContent>
-                    </Card>
-                </section>
-
-                <section className="mt-6 grid gap-6 md:grid-cols-3">
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Sertifikasi Level 1–5</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            Tingkat kelulusan 95%–100% untuk ujian LSPP maupun
-                            BSMR. Jumlah kelas mencapai 94 kelas atau 2.022
-                            orang.
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Program Refreshment</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            Peserta refreshment telah mencapai 8.503 orang,
-                            memastikan kompetensi selalu mutakhir.
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Ekspansi Layanan</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            Pembekalan ujian non-Manajemen Risiko: Business
-                            Strategy for Leaders, Dasar-dasar Manajemen,
-                            Kepemimpinan, Komunikasi dan Interaksi, Negosiasi,
-                            Manajemen Waktu/Strategi, People Skill, serta Soft
-                            Skill seperti Leadership, Selling Skill, dan
-                            Customer Services.
-                        </CardContent>
-                    </Card>
-                </section>
-
-                <section className="mt-10 grid gap-6 md:grid-cols-2">
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Jasa yang Berjalan Pesat</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <ul className="list-disc pl-5 space-y-1">
-                                <li>
-                                    Training Pembekalan Ujian Sertifikasi
-                                    Manajemen Risiko level 1–5, kelulusan
-                                    95%–100% (LSPP/BSMR), total 94 kelas atau
-                                    2.022 peserta.
-                                </li>
-                                <li>
-                                    Program Refreshment bagi pemegang Sertifikat
-                                    Manajemen Risiko dengan total peserta 8.503
-                                    orang.
-                                </li>
-                            </ul>
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Jejak Pelayanan</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            Sejak Januari 2016 hingga April 2019 melayani 20
-                            bank di Indonesia: bank asing, BUMN, swasta
-                            nasional, dan BPD.
-                        </CardContent>
-                    </Card>
-                </section>
-
-                <section className="mt-10 grid gap-6 md:grid-cols-2">
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Visi</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            Menjadi partner terpercaya dan problem solver dalam
-                            pembekalan ujian, refreshment, dan training lainnya.
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Misi</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <ul className="list-disc pl-5 space-y-1">
-                                <li>
-                                    Membantu bank dan LKB menyelenggarakan
-                                    refreshment dan pembekalan ujian sertifikasi
-                                    Manajemen Risiko dengan kelulusan 100%.
-                                </li>
-                                <li>
-                                    Mendukung pemenuhan ketentuan otoritas: Bank
-                                    Indonesia dan OJK.
-                                </li>
-                                <li>
-                                    Memastikan kepatuhan terhadap ketentuan
-                                    refreshment dan ujian LSPP maupun BSMR.
-                                </li>
-                                <li>Menjalin sinergi dengan BSMR dan LSPP.</li>
-                            </ul>
-                        </CardContent>
-                    </Card>
-                </section>
-
-                <section className="mt-10 grid gap-6 md:grid-cols-2">
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Pendiri</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            Didirikan oleh Soeyamto, SE (praktisi perbankan di
-                            bank asing dan pemerintah, serta LSPP) dan Ratih
-                            Dewi, S.Sos (praktisi Telkom Provider Internasional
-                            dan LSPP).
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Sinergi</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            Berkolaborasi dan bersinergi dengan BSMR dan LSPP
-                            untuk memastikan materi dan standar kompetensi
-                            selalu relevan.
-                        </CardContent>
-                    </Card>
-                </section>
-
-                <section className="mt-10">
-                    <Badge>Galeri Pendiri</Badge>
-                    <div className="mt-4 grid gap-6 md:grid-cols-2">
-                        <Card>
-                            <CardHeader className="text-center">
-                                <CardTitle>Komisaris — Soeyamto, SE</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <div className="relative aspect-square w-full overflow-hidden rounded-lg border border-neutral-200 dark:border-neutral-800">
-                                    <img
-                                        src="/images/komisaris-rds.jpg"
-                                        alt="Komisaris Soeyamto, SE — PT Raharja Duta Solusindo"
-                                        className="size-full object-cover"
-                                    />
-                                </div>
-                                {/* <p className="mt-3 text-sm text-neutral-700 dark:text-neutral-300">
-                                    Komisaris (Pendiri) — Soeyamto, SE
-                                </p> */}
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardHeader className="text-center">
-                                <CardTitle>
-                                    Direktur — Ratih Dewi, S.Sos, MM
+            {/* MAIN CONTENT */}
+            <main className="mx-auto max-w-6xl px-6 py-16 bg-white dark:bg-slate-950">
+                {/* Intro Section */}
+                <section className="grid gap-12 lg:grid-cols-2 items-center">
+                    <div>
+                        <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">
+                            Profil Perusahaan
+                        </h2>
+                        <div className="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
+                            <p>
+                                PT Raharja Duta Solusindo (RDS) adalah lembaga
+                                training yang didirikan oleh para praktisi
+                                berpengalaman. Kami menggabungkan keahlian dari
+                                dunia perbankan multinasional, BUMN, hingga
+                                lembaga sertifikasi profesi.
+                            </p>
+                            <p>
+                                Didirikan oleh <strong>Soeyamto, SE</strong>{" "}
+                                (Praktisi Perbankan & LSPP) dan{" "}
+                                <strong>Ratih Dewi, S.Sos, MM</strong> (Praktisi
+                                Telekomunikasi & LSPP), RDS membawa standar
+                                tinggi dalam setiap program pelatihannya.
+                            </p>
+                        </div>
+                    </div>
+                    <div className="grid gap-6 sm:grid-cols-2">
+                        <Card className="bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800">
+                            <CardHeader>
+                                <CardTitle className="text-purple-700 dark:text-purple-400">
+                                    Pengalaman
                                 </CardTitle>
                             </CardHeader>
-                            <CardContent>
-                                <div className="relative aspect-square w-full overflow-hidden rounded-lg border border-neutral-200 dark:border-neutral-800">
-                                    <img
-                                        src="/images/direktur-rds.jpg"
-                                        alt="Direktur Ratih Dewi, S.Sos, MM — PT Raharja Duta Solusindo"
-                                        className="size-full object-cover"
-                                    />
-                                </div>
-                                {/* <p className="mt-3 text-sm text-neutral-700 dark:text-neutral-300">
-                                    Direktur (Pendiri) — Ratih Dewi, S.Sos, MM
-                                </p> */}
+                            <CardContent className="text-slate-600 dark:text-slate-400">
+                                Melayani lebih dari 20 bank (Asing, BUMN,
+                                Swasta, BPD) sejak 2016.
+                            </CardContent>
+                        </Card>
+                        <Card className="bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800">
+                            <CardHeader>
+                                <CardTitle className="text-purple-700 dark:text-purple-400">
+                                    Kualitas
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent className="text-slate-600 dark:text-slate-400">
+                                Tingkat kelulusan 95%-100% untuk ujian
+                                sertifikasi Manajemen Risiko.
                             </CardContent>
                         </Card>
                     </div>
                 </section>
 
-                <section className="mt-10">
-                    <Badge>Timeline Capaian</Badge>
-                    <div className="mt-6 relative">
-                        <ol className="space-y-6 border-l border-neutral-200 dark:border-neutral-800 pl-6">
-                            <li className="relative">
-                                <span className="absolute -left-3 top-1 size-2 rounded-full bg-neutral-400 dark:bg-neutral-600"></span>
-                                <h3 className="text-sm font-semibold text-black dark:text-white">
-                                    Januari 2016
-                                </h3>
-                                <p className="mt-1 text-sm text-neutral-700 dark:text-neutral-300">
-                                    Mulai melayani bank dan lembaga keuangan di
-                                    Indonesia.
-                                </p>
-                            </li>
-                            <li className="relative">
-                                <span className="absolute -left-3 top-1 size-2 rounded-full bg-neutral-400 dark:bg-neutral-600"></span>
-                                <h3 className="text-sm font-semibold text-black dark:text-white">
-                                    April 2019
-                                </h3>
-                                <p className="mt-1 text-sm text-neutral-700 dark:text-neutral-300">
-                                    Melayani 20 bank: bank asing, BUMN, swasta
-                                    nasional, dan BPD.
-                                </p>
-                            </li>
-                            <li className="relative">
-                                <span className="absolute -left-3 top-1 size-2 rounded-full bg-neutral-400 dark:bg-neutral-600"></span>
-                                <h3 className="text-sm font-semibold text-black dark:text-white">
-                                    94 Kelas • 2.022 Peserta
-                                </h3>
-                                <p className="mt-1 text-sm text-neutral-700 dark:text-neutral-300">
-                                    Training pembekalan ujian Sertifikasi
-                                    Manajemen Risiko dengan kelulusan 95%–100%.
-                                </p>
-                            </li>
-                            <li className="relative">
-                                <span className="absolute -left-3 top-1 size-2 rounded-full bg-neutral-400 dark:bg-neutral-600"></span>
-                                <h3 className="text-sm font-semibold text-black dark:text-white">
-                                    8.503 Peserta Refreshment
-                                </h3>
-                                <p className="mt-1 text-sm text-neutral-700 dark:text-neutral-300">
-                                    Program refreshment bagi pemegang sertifikat
-                                    Manajemen Risiko.
-                                </p>
-                            </li>
-                            <li className="relative">
-                                <span className="absolute -left-3 top-1 size-2 rounded-full bg-neutral-400 dark:bg-neutral-600"></span>
-                                <h3 className="text-sm font-semibold text-black dark:text-white">
-                                    Ekspansi Layanan
-                                </h3>
-                                <p className="mt-1 text-sm text-neutral-700 dark:text-neutral-300">
-                                    Pengembangan ke training non-Manajemen
-                                    Risiko dan soft skill untuk mendukung
-                                    kebutuhan institusi.
-                                </p>
-                            </li>
-                        </ol>
+                {/* Visi Misi */}
+                <section className="mt-20">
+                    <div className="grid gap-8 md:grid-cols-2">
+                        <div className="bg-slate-900 text-white rounded-2xl p-8 shadow-xl relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-purple-600/20 rounded-full blur-3xl" />
+                            <h3 className="text-2xl font-bold mb-4">
+                                Visi Kami
+                            </h3>
+                            <p className="text-slate-300 leading-relaxed">
+                                Menjadi partner terpercaya dan{" "}
+                                <em>problem solver</em> utama dalam pembekalan
+                                ujian, refreshment, dan training perbankan di
+                                Indonesia.
+                            </p>
+                        </div>
+                        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 shadow-sm">
+                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
+                                Misi Kami
+                            </h3>
+                            <ul className="space-y-3 text-slate-600 dark:text-slate-300">
+                                <li className="flex items-start gap-3">
+                                    <span className="text-purple-600 font-bold">
+                                        •
+                                    </span>
+                                    Membantu kelulusan ujian sertifikasi hingga
+                                    100%.
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="text-purple-600 font-bold">
+                                        •
+                                    </span>
+                                    Mendukung pemenuhan regulasi Bank Indonesia
+                                    & OJK.
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="text-purple-600 font-bold">
+                                        •
+                                    </span>
+                                    Menjalin sinergi erat dengan BSMR dan LSPP.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Founder Section */}
+                <section className="mt-20">
+                    <div className="text-center mb-12">
+                        <Badge
+                            variant="outline"
+                            className="mb-3 border-purple-600 text-purple-600"
+                        >
+                            Leadership
+                        </Badge>
+                        <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
+                            Dewan Direksi
+                        </h2>
+                    </div>
+                    <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+                        <Card className="overflow-hidden border-0 shadow-lg group">
+                            <div className="relative h-80 overflow-hidden bg-slate-200">
+                                <img
+                                    src="/images/komisaris-rds.jpg"
+                                    alt="Soeyamto, SE"
+                                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                                <div className="absolute bottom-0 left-0 p-6 text-white">
+                                    <p className="font-bold text-xl">
+                                        Soeyamto, SE
+                                    </p>
+                                    <p className="text-sm text-slate-300 uppercase tracking-wider">
+                                        Komisaris Utama
+                                    </p>
+                                </div>
+                            </div>
+                        </Card>
+                        <Card className="overflow-hidden border-0 shadow-lg group">
+                            <div className="relative h-80 overflow-hidden bg-slate-200">
+                                <img
+                                    src="/images/direktur-rds.jpg"
+                                    alt="Ratih Dewi, S.Sos, MM"
+                                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                                <div className="absolute bottom-0 left-0 p-6 text-white">
+                                    <p className="font-bold text-xl">
+                                        Ratih Dewi, S.Sos, MM
+                                    </p>
+                                    <p className="text-sm text-slate-300 uppercase tracking-wider">
+                                        Direktur Utama
+                                    </p>
+                                </div>
+                            </div>
+                        </Card>
+                    </div>
+                </section>
+
+                {/* Timeline */}
+                <section className="mt-20 border-t border-slate-200 dark:border-slate-800 pt-16">
+                    <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">
+                        Jejak Langkah
+                    </h2>
+                    <div className="max-w-3xl mx-auto">
+                        <div className="relative border-l-2 border-slate-200 dark:border-slate-800 ml-3 md:ml-0 space-y-12">
+                            {[
+                                {
+                                    year: "Januari 2016",
+                                    title: "Awal Perjalanan",
+                                    desc: "Mulai melayani bank dan lembaga keuangan di Indonesia dengan visi meningkatkan kompetensi SDM.",
+                                },
+                                {
+                                    year: "April 2019",
+                                    title: "Pertumbuhan Pesat",
+                                    desc: "Dipercaya oleh 20 bank besar (Asing, BUMN, BPD) sebagai mitra training utama.",
+                                },
+                                {
+                                    year: "Capaian Signifikan",
+                                    title: "Ribuan Alumni",
+                                    desc: "Mencetak 2.022 peserta sertifikasi dengan kelulusan >95% dan 8.500+ peserta refreshment.",
+                                },
+                                {
+                                    year: "Sekarang",
+                                    title: "Ekspansi Layanan",
+                                    desc: "Mengembangkan modul Soft Skill & Leadership untuk solusi SDM yang lebih holistik.",
+                                },
+                            ].map((item, idx) => (
+                                <div
+                                    key={idx}
+                                    className="relative pl-8 md:pl-12"
+                                >
+                                    <span className="absolute -left-[9px] top-1 h-5 w-5 rounded-full border-4 border-white dark:border-slate-900 bg-purple-600 shadow-sm" />
+                                    <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                                        {item.year}
+                                    </h3>
+                                    <p className="font-semibold text-purple-600">
+                                        {item.title}
+                                    </p>
+                                    <p className="mt-2 text-slate-600 dark:text-slate-400">
+                                        {item.desc}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </section>
             </main>
