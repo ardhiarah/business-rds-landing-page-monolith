@@ -2,49 +2,53 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\GalleryImageResource\Pages;
-use App\Filament\Resources\GalleryImageResource\RelationManagers;
-use App\Models\GalleryImage;
+use App\Filament\Resources\ServiceItemResource\Pages;
+use App\Models\ServiceItem;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class GalleryImageResource extends Resource
+class ServiceItemResource extends Resource
 {
-    protected static ?string $model = GalleryImage::class;
+    protected static ?string $model = ServiceItem::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-photo';
-    protected static ?string $navigationGroup = 'Gambar';
+    protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
+    protected static ?string $navigationGroup = 'Layanan';
+    protected static ?int $navigationSort = 10;
 
     public static function getNavigationLabel(): string
     {
-        return 'Galeri';
+        return 'Public Class';
     }
 
     public static function getModelLabel(): string
     {
-        return 'Galeri';
+        return 'Public Class';
     }
 
     public static function getPluralModelLabel(): string
     {
-        return 'Galeri';
+        return 'Public Class';
     }
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\Section::make('Gambar')
+                Forms\Components\Section::make('Layanan')
                     ->schema([
                         Forms\Components\FileUpload::make('image_path')
                             ->image()
-                            ->directory('gallery')
+                            ->directory('services')
                             ->imageEditor()
+                            ->required(),
+                        Forms\Components\Select::make('type')
+                            ->options([
+                                'schedule' => 'Schedule',
+                                'event' => 'Event',
+                            ])
                             ->required(),
                         Forms\Components\TextInput::make('caption')->maxLength(255),
                         Forms\Components\Toggle::make('is_published')->label('Publish')->default(true),
@@ -58,12 +62,22 @@ class GalleryImageResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image_path')->label('Gambar')->square(),
+                Tables\Columns\BadgeColumn::make('type')
+                    ->label('Tipe')
+                    ->colors([
+                        'primary' => 'schedule',
+                        'success' => 'event',
+                    ]),
                 Tables\Columns\TextColumn::make('caption')->limit(30),
                 Tables\Columns\IconColumn::make('is_published')->boolean(),
                 Tables\Columns\TextColumn::make('sort_order')->label('Urutan')->sortable(),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('type')
+                    ->options([
+                        'schedule' => 'Schedule',
+                        'event' => 'Event',
+                    ]),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -78,23 +92,32 @@ class GalleryImageResource extends Resource
                 Tables\Actions\Action::make('bulkUpload')
                     ->label('Bulk Upload')
                     ->form([
+                        Forms\Components\Select::make('type')
+                            ->label('Tipe')
+                            ->options([
+                                'schedule' => 'Schedule',
+                                'event' => 'Event',
+                            ])
+                            ->required(),
                         Forms\Components\FileUpload::make('images')
                             ->image()
                             ->multiple()
                             ->appendFiles()
                             ->preserveFilenames()
-                            ->directory('gallery')
+                            ->directory('services')
                             ->required(),
                     ])
                     ->action(function (array $data) {
                         $paths = $data['images'] ?? [];
-                        $start = (int) \App\Models\GalleryImage::max('sort_order');
+                        $type = $data['type'] ?? null;
+                        $start = (int) ServiceItem::max('sort_order');
                         $order = $start;
 
                         foreach ($paths as $path) {
                             $order++;
-                            \App\Models\GalleryImage::create([
+                            ServiceItem::create([
                                 'image_path' => $path,
+                                'type' => $type,
                                 'caption' => null,
                                 'is_published' => true,
                                 'sort_order' => $order,
@@ -106,17 +129,15 @@ class GalleryImageResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListGalleryImages::route('/'),
-            'create' => Pages\CreateGalleryImage::route('/create'),
-            'edit' => Pages\EditGalleryImage::route('/{record}/edit'),
+            'index' => Pages\ListServiceItems::route('/'),
+            'create' => Pages\CreateServiceItem::route('/create'),
+            'edit' => Pages\EditServiceItem::route('/{record}/edit'),
         ];
     }
 }

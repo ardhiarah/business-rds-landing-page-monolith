@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use App\Models\GalleryImage;
 use App\Models\ClientLogo;
+use App\Models\ServiceItem;
+use App\Models\ContactSubmission;
 
 class PublicPageController extends Controller
 {
@@ -18,7 +20,40 @@ class PublicPageController extends Controller
 
     public function layanan()
     {
-        return Inertia::render('Layanan');
+        $schedules = ServiceItem::query()
+            ->where('is_published', true)
+            ->where('type', 'schedule')
+            ->orderBy('sort_order')
+            ->orderBy('id')
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'id' => $item->id,
+                    'image_url' => url(Storage::url($item->image_path)),
+                    'caption' => $item->caption,
+                ];
+            })
+            ->values();
+
+        $events = ServiceItem::query()
+            ->where('is_published', true)
+            ->where('type', 'event')
+            ->orderBy('sort_order')
+            ->orderBy('id')
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'id' => $item->id,
+                    'image_url' => url(Storage::url($item->image_path)),
+                    'caption' => $item->caption,
+                ];
+            })
+            ->values();
+
+        return Inertia::render('Layanan', [
+            'schedules' => $schedules,
+            'events' => $events,
+        ]);
     }
 
     public function kontak()
@@ -35,7 +70,14 @@ class PublicPageController extends Controller
             'pesan' => 'required|string',
         ]);
 
-        Log::info('Contact form submission', $data);
+        $created = ContactSubmission::create([
+            'name' => $data['nama'],
+            'email' => $data['email'],
+            'institution' => $data['institusi'] ?? null,
+            'message' => $data['pesan'],
+        ]);
+
+        Log::info('Contact form submission saved', ['id' => $created->id]);
 
         return response()->json(['ok' => true]);
     }
@@ -92,4 +134,3 @@ class PublicPageController extends Controller
         return Inertia::render('Tentang');
     }
 }
-

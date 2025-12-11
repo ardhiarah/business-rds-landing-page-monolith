@@ -15,6 +15,22 @@ class ClientLogoResource extends Resource
     protected static ?string $model = ClientLogo::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-building-office';
+    protected static ?string $navigationGroup = 'Gambar';
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Logo Klien';
+    }
+
+    public static function getModelLabel(): string
+    {
+        return 'Logo Klien';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Logo Klien';
+    }
 
     public static function form(Form $form): Form
     {
@@ -91,4 +107,3 @@ class ClientLogoResource extends Resource
         ];
     }
 }
-
