@@ -9,6 +9,7 @@ import {
 } from "../Components/ui/card";
 import ContactForm from "../Components/ContactForm";
 import { Link, usePage } from "@inertiajs/react";
+import { useEffect, useState } from "react";
 import {
     CheckCircle2,
     TrendingUp,
@@ -17,10 +18,49 @@ import {
     MonitorPlay,
 } from "lucide-react"; // Pastikan install lucide-react jika belum
 import { useLanguage } from "../Contexts/LanguageContext";
+import NumberTicker from "../Components/ui/number-ticker";
 
 export default function Home() {
     const { clientLogos = [] } = usePage().props;
     const { t } = useLanguage();
+    const [participantStats, setParticipantStats] = useState({
+        value: 0,
+        suffix: "0",
+        decimalPlaces: 0,
+    });
+
+    useEffect(() => {
+        const fetchParticipants = async () => {
+            try {
+                const response = await fetch(
+                    "https://tms.rds-indonesia.com/api/v1/participants/count"
+                );
+                const data = await response.json();
+                if (data.success && typeof data.data?.total === "number") {
+                    const num = data.data.total;
+                    let value = num;
+                    let suffix = "";
+                    let decimalPlaces = 0;
+
+                    if (num >= 1000000) {
+                        value = num / 1000000;
+                        suffix = "m+";
+                        decimalPlaces = value % 1 === 0 ? 0 : 1;
+                    } else if (num >= 1000) {
+                        value = num / 1000;
+                        suffix = "k+";
+                        decimalPlaces = value % 1 === 0 ? 0 : 1;
+                    }
+
+                    setParticipantStats({ value, suffix, decimalPlaces });
+                }
+            } catch (error) {
+                console.error("Failed to fetch participant count:", error);
+            }
+        };
+
+        fetchParticipants();
+    }, []);
 
     return (
         <SiteLayout>
@@ -69,24 +109,39 @@ export default function Home() {
                             {/* Statistik Highlight dalam Hero */}
                             <div className="mt-12 grid grid-cols-3 gap-6 border-t border-slate-800 pt-8">
                                 <div>
-                                    <h3 className="text-3xl font-bold text-white">
-                                        95%+
+                                    <h3 className="text-3xl font-bold text-white flex items-center">
+                                        <NumberTicker
+                                            value={95}
+                                            className="text-white"
+                                        />
+                                        %+
                                     </h3>
                                     <p className="text-sm text-slate-400 mt-1">
                                         {t("home.stats.graduation_rate")}
                                     </p>
                                 </div>
                                 <div>
-                                    <h3 className="text-3xl font-bold text-white">
-                                        25+
+                                    <h3 className="text-3xl font-bold text-white flex items-center">
+                                        <NumberTicker
+                                            value={25}
+                                            className="text-white"
+                                        />
+                                        +
                                     </h3>
                                     <p className="text-sm text-slate-400 mt-1">
                                         {t("home.stats.partners")}
                                     </p>
                                 </div>
                                 <div>
-                                    <h3 className="text-3xl font-bold text-white">
-                                        18k+
+                                    <h3 className="text-3xl font-bold text-white flex items-center">
+                                        <NumberTicker
+                                            value={participantStats.value}
+                                            decimalPlaces={
+                                                participantStats.decimalPlaces
+                                            }
+                                            className="text-white"
+                                        />
+                                        {participantStats.suffix}
                                     </h3>
                                     <p className="text-sm text-slate-400 mt-1">
                                         {t("home.stats.alumni")}

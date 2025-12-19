@@ -23,7 +23,7 @@ export const translations = {
             stats: {
                 graduation_rate: "Tingkat Kelulusan",
                 partners: "Mitra Bank",
-                alumni: "Alumni Peserta",
+                alumni: "Peserta & Alumni",
             },
             why_choose_title: "Mengapa Memilih",
             why_choose_subtitle: "Raharja Duta Solusindo?",
@@ -284,7 +284,7 @@ export const translations = {
             stats: {
                 graduation_rate: "Graduation Rate",
                 partners: "Bank Partners",
-                alumni: "Alumni Participants",
+                alumni: "Participants & Alumni",
             },
             why_choose_title: "Why Choose",
             why_choose_subtitle: "Raharja Duta Solusindo?",
